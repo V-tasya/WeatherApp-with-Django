@@ -32,8 +32,10 @@
         </div>
 
         <div class="col-5 offset-1">
+            <div class="d-flex align-items-center">
             <h2 class="mb-4">Information</h2>
-
+            <a href="{% url 'delete_first_city' %}" class="btn btn-success ms-5 mb-3">Delete</a>
+            </div>
             {% for info in all_info %}
             <div class="alert alert-info d-flex justify-content-between align-items-center">
                 <div>

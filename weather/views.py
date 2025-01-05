@@ -1,6 +1,7 @@
 # in django views.py is suitable for processing requests and returning answers
 # how app well react on a definite client's request
 import requests # is used for post and get requests
+from django.shortcuts import redirect # redirect sends users on other url
 from django.shortcuts import render
 from .models import City
 from .forms import CityForm
@@ -39,3 +40,9 @@ def index(request):
     #print(res.text)
 
     return render(request, 'weather/index.html', context)
+
+def delete_first_city(request):
+    first_city = City.objects.first()
+    if first_city:
+        first_city.delete()
+    return redirect('index')
