@@ -22,15 +22,10 @@
         <div class="col-5 offset-1">
             <h2 class="mb-4">Weather in your city</h2>
             <form action="" method="POST">
-                <div class="mb-3 d-flex align-items-center">
-                    <label for="city" class="form-label me-3" style="font-size: 1.2rem; font-weight: bold;">City:</label>
-                    <input
-                        type="text"
-                        id="city"
-                        class="form-control"
-                        name="city"
-                        placeholder="Enter a city"
-                        required>
+                <div class="mb-3 d-flex flex-column">
+                    {% csrf_token %}
+                       <label for="city" class="form-label me-3" style="font-size: 1.2rem; font-weight: bold;">City</label>
+                       {{ form.name }}
                 </div>
                 <button type="submit" name="send" class="btn btn-success mt-3">Find out</button>
             </form>
