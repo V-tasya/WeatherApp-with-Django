@@ -9,7 +9,7 @@ from .forms import CityForm
 #this function is processing requests on a home page of an app
 def index(request):
     appid = 'c3efdac01664d4464d1f614b2a2ec6fa'
-    url = 'https://api.openweathermap.org/data/2.5/weather?q={}&units=metrics&appid=' + appid
+    url = 'https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=' + appid
 
     # if send method equals to post
     if(request.method == 'POST'):
@@ -42,7 +42,7 @@ def index(request):
     return render(request, 'weather/index.html', context)
 
 def delete_first_city(request):
-    first_city = City.objects.first()
+    first_city = City.objects.last()
     if first_city:
         first_city.delete()
     return redirect('index')
